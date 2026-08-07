@@ -1,8 +1,3 @@
---[[
-    Axon Hub - Bloxstrike Framework (PC Optimized Version)
-    Modifications applied & fully integrated (Fixed for PC Keybinds & Smooth UI):
-]]--
-
 local UserInputService = game:GetService("UserInputService")
 local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
@@ -65,9 +60,6 @@ local function notify(title, text)
     end)
 end
 
--- ==========================================
--- SCREEN GUI SETUP
--- ==========================================
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Name = "AxonHubUI"
 pcall(function()
@@ -232,9 +224,7 @@ local function reloadvm()
     end)
 end
 
--- ==========================================
--- CONFIGURATION TABLE
--- ==========================================
+
 local cfg = {
     aimbotEnabled = false,
     aimbotVisCheck = true,
@@ -359,9 +349,7 @@ RunService.RenderStepped:Connect(function(dt)
     end
 end)
 
--- ==========================================
--- MAIN FRAME (vexelcheatz Theme)
--- ==========================================
+
 local MainFrame = Instance.new("Frame")
 MainFrame.Name = "MainFrame"
 MainFrame.Parent = ScreenGui
@@ -381,7 +369,7 @@ MainStroke.Color = Color3.fromRGB(35, 35, 35)
 MainStroke.Thickness = 1
 MainStroke.Parent = MainFrame
 
--- PC Keyboard Toggle (Press INSERT to open/close menu)
+
 UserInputService.InputBegan:Connect(function(input, gameProcessed)
     if input.KeyCode == Enum.KeyCode.Insert then
         MainFrame.Visible = not MainFrame.Visible
@@ -389,7 +377,7 @@ UserInputService.InputBegan:Connect(function(input, gameProcessed)
     end
 end)
 
--- Top Bar UI
+
 local TopBar = Instance.new("Frame")
 TopBar.Name = "TopBar"
 TopBar.Parent = MainFrame
@@ -492,9 +480,7 @@ for i, tabName in ipairs(tabNames) do
     end)
 end
 
--- ==========================================
--- UI COMPONENT BUILDERS
--- ==========================================
+
 local function createGroupBox(parent, titleText)
     local box = Instance.new("Frame")
     box.Size = UDim2.new(0, 460, 0, 32)
@@ -917,9 +903,7 @@ local function createSlider(parent, labelText, min, max, decimals, value, callba
     return row
 end
 
--- ==========================================
--- UI TABS & CONTROLS CREATION
--- ==========================================
+
 local boxLegit = createGroupBox(pages["Combat"], "Aim Assist Settings")
 createToggle(boxLegit, "Enable Aimbot", cfg.aimbotEnabled, function(v) cfg.aimbotEnabled = v end)
 createToggle(boxLegit, "Draw FOV Circle", cfg.showFov, function(v) cfg.showFov = v end)
